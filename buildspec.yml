@@ -15,9 +15,9 @@ phases:
   build:
     commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
-      - aws s3 cp --recursive public/ s3://$WEBSITE_S3_BUCKET/public/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
+      - aws s3 cp --recursive public/ s3://codepipeline-ap-northeast-1-735046753207/public/ --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers
       #- sed -i -e "s|assets/|$WEBSITE_S3_PREFIX/public/assets/|g" public/index.html
-      - aws cloudformation package --template template.yml --s3-bucket $S3_BUCKET --output-template template-export.yml
+      - aws cloudformation package --template template.yml --s3-bucket codepipeline-ap-northeast-1-735046753207 --output-template template-export.yml
   post_build:
     commands:
 
