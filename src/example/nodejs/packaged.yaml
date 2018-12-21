@@ -28,7 +28,7 @@ Resources:
   HelloWorldFunction:
     Properties:
 #      CodeUri: s3://example-nodejs3/6f6b8fb46f207716f258bf88dde8b263
-      CodeUri:
+      Code:
         S3Bucket: "example-nodejs3"
         S3Key: "6f6b8fb46f207716f258bf88dde8b263"
       Environment:
@@ -42,5 +42,6 @@ Resources:
           Type: Api
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
-    Type: AWS::Serverless::Function
+#    Type: AWS::Serverless::Function
+    Type: AWS::Lambda::Function
 # Transform: AWS::Serverless-2016-10-31
