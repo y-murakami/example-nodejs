@@ -29,7 +29,7 @@
           "S3Key" : "sample/decode.js.zip"
         },
         "Description" : "decode base64 function",
-        "Handler": "DecodeBase64.handler",
+        "Handler": "decode.handler",
         "Role" : {"Fn::GetAtt" : [ "LambdaRole", "Arn" ] },
         "Runtime" : "nodejs"
       }
