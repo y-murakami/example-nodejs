@@ -34,12 +34,12 @@ Resources:
       Environment:
         Variables:
           PARAM1: VALUE
-      Events:
-        HelloWorld:
-          Properties:
-            Method: get
-            Path: /hello
-          Type: Api
+#      Events:
+#        HelloWorld:
+#          Properties:
+#            Method: get
+#            Path: /hello
+#          Type: Api
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
 #    Type: AWS::Serverless::Function
