@@ -31,7 +31,7 @@
         "Description" : "decode base64 function",
         "Handler": "decode.handler",
         "Role" : {"Fn::GetAtt" : [ "LambdaRole", "Arn" ] },
-        "Runtime" : "nodejs"
+        "Runtime" : "nodejs8.10"
       }
     }
   }
