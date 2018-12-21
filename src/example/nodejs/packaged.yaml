@@ -42,10 +42,10 @@ Resources:
 #          Type: Api
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
+      Role:
+        Fn::GetAtt:
+          - "LambdaExecutionRole"
+          - "Arn"
 #    Type: AWS::Serverless::Function
     Type: AWS::Lambda::Function
-    Role:
-      Fn::GetAtt:
-        - "LambdaExecutionRole"
-        - "Arn"
 # Transform: AWS::Serverless-2016-10-31
