@@ -30,7 +30,7 @@
         },
         "Description" : "decode base64 function",
         "Handler": "decode.handler",
-        "Role" : {"Fn::GetAtt" : [ "LambdaRole", "Arn" ] },
+        "Role" : {"Fn::GetAtt" : [ "example-nodejs3-LambdaRole-1HQ4V5T7DY9F2", "Arn" ] },
         "Runtime" : "nodejs8.10"
       }
     }
