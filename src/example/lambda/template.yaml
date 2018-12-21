@@ -1,0 +1,38 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Lambda sample environment template",
+  "Resources": {
+    "LambdaRole" : {
+      "Type" : "AWS::IAM::Role",
+      "Properties" : {
+        "AssumeRolePolicyDocument" : {
+          "Statement": [ {
+            "Effect": "Allow",
+              "Principal": {
+                "Service": [ "lambda.amazonaws.com" ]
+              },
+              "Action": [ "sts:AssumeRole" ]
+          } ]
+        },
+        "Path" : "/",
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/PowerUserAccess"
+        ]
+      }
+    },
+
+    "MyLambdaFunction": {
+      "Type" : "AWS::Lambda::Function",
+      "Properties" : {
+        "Code" : {
+          "S3Bucket" : "example-nodejs3",
+          "S3Key" : "sample/decide.js.zip"
+        },
+        "Description" : "decode base64 function",
+        "Handler": "DecodeBase64.handler",
+        "Role" : {"Fn::GetAtt" : [ "LambdaRole", "Arn" ] },
+        "Runtime" : "nodejs"
+      }
+    }
+  }
+}
