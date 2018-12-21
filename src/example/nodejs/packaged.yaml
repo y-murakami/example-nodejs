@@ -27,7 +27,7 @@ Outputs:
 Resources:
   HelloWorldFunction:
     Properties:
-      CodeUri: s3://example-nodejs3/988bebe545688e6fbc54e10099d20dda
+      CodeUri: s3://example-nodejs3/6f6b8fb46f207716f258bf88dde8b263
       Environment:
         Variables:
           PARAM1: VALUE
