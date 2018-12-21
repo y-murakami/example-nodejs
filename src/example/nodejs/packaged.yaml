@@ -25,6 +25,16 @@ Description: 'nodejs
 #       - HelloWorldFunctionRole
 #       - Arn
 Resources:
+  LambdaExecutionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: "sts:AssumeRole"
   HelloWorldFunction:
     Properties:
 #      CodeUri: s3://example-nodejs3/6f6b8fb46f207716f258bf88dde8b263
@@ -44,7 +54,7 @@ Resources:
       Runtime: nodejs8.10
       Role:
         Fn::GetAtt:
-          - "arn:aws:iam::466976862258:role/example-nodejs3-LambdaRole-1HQ4V5T7DY9F2"
+          - "LambdaExecutionRole"
           - "Arn"
 #    Type: AWS::Serverless::Function
     Type: AWS::Lambda::Function
