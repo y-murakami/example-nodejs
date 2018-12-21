@@ -7,23 +7,23 @@ Description: 'nodejs
 Globals:
   Function:
     Timeout: 3
-Outputs:
-  HelloWorldApi:
-    Description: API Gateway endpoint URL for Prod stage for Hello World function
-    Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
-  HelloWorldFunction:
-    Description: Hello World Lambda Function ARN
-    Value:
-      Fn::GetAtt:
-      - HelloWorldFunction
-      - Arn
-  HelloWorldFunctionIamRole:
-    Description: Implicit IAM Role created for Hello World function
-    Value:
-      Fn::GetAtt:
-      - HelloWorldFunctionRole
-      - Arn
+# Outputs:
+#   HelloWorldApi:
+#     Description: API Gateway endpoint URL for Prod stage for Hello World function
+#     Value:
+#       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+#   HelloWorldFunction:
+#     Description: Hello World Lambda Function ARN
+#     Value:
+#       Fn::GetAtt:
+#       - HelloWorldFunction
+#       - Arn
+#   HelloWorldFunctionIamRole:
+#     Description: Implicit IAM Role created for Hello World function
+#     Value:
+#       Fn::GetAtt:
+#       - HelloWorldFunctionRole
+#       - Arn
 Resources:
   HelloWorldFunction:
     Properties:
