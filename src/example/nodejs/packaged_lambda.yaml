@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'nodejs
+
+  Sample SAM Template for nodejs
+
+  '
+# Globals:
+#   Function:
+#     Timeout: 3
+# Outputs:
+#   HelloWorldApi:
+#     Description: API Gateway endpoint URL for Prod stage for Hello World function
+#     Value:
+#       Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+#   HelloWorldFunction:
+#     Description: Hello World Lambda Function ARN
+#     Value:
+#       Fn::GetAtt:
+#       - HelloWorldFunction
+#       - Arn
+#   HelloWorldFunctionIamRole:
+#     Description: Implicit IAM Role created for Hello World function
+#     Value:
+#       Fn::GetAtt:
+#       - HelloWorldFunctionRole
+#       - Arn
+Resources:
+  LambdaExecutionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: "sts:AssumeRole"
+  HelloWorldFunction:
+    Properties:
+#      CodeUri: s3://example-nodejs3/6f6b8fb46f207716f258bf88dde8b263
+      Code:
+        S3Bucket: "example-nodejs3"
+        S3Key: "6f6b8fb46f207716f258bf88dde8b263"
+      Environment:
+        Variables:
+          PARAM1: VALUE
+#      Events:
+#        HelloWorld:
+#          Properties:
+#            Method: get
+#            Path: /hello
+#          Type: Api
+      Handler: app.lambdaHandler
+      Runtime: nodejs8.10
+      Role:
+        Fn::GetAtt:
+          - "LambdaExecutionRole"
+          - "Arn"
+#    Type: AWS::Serverless::Function
+    Type: AWS::Lambda::Function
+# Transform: AWS::Serverless-2016-10-31
