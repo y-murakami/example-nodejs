@@ -44,7 +44,7 @@ Resources:
       Runtime: nodejs8.10
       Role:
         Fn::GetAtt:
-          - "example-nodejs3-LambdaRole-1HQ4V5T7DY9F2"
+          - "arn:aws:iam::466976862258:role/example-nodejs3-LambdaRole-1HQ4V5T7DY9F2"
           - "Arn"
 #    Type: AWS::Serverless::Function
     Type: AWS::Lambda::Function
