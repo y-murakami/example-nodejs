@@ -27,7 +27,10 @@ Description: 'nodejs
 Resources:
   HelloWorldFunction:
     Properties:
-      CodeUri: s3://example-nodejs3/6f6b8fb46f207716f258bf88dde8b263
+#      CodeUri: s3://example-nodejs3/6f6b8fb46f207716f258bf88dde8b263
+      CodeUri:
+        S3Bucket: "example-nodejs3"
+        S3Key: "6f6b8fb46f207716f258bf88dde8b263"
       Environment:
         Variables:
           PARAM1: VALUE
