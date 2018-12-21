@@ -44,4 +44,8 @@ Resources:
       Runtime: nodejs8.10
 #    Type: AWS::Serverless::Function
     Type: AWS::Lambda::Function
+    Role:
+      Fn::GetAtt:
+        - "LambdaExecutionRole"
+        - "Arn"
 # Transform: AWS::Serverless-2016-10-31
