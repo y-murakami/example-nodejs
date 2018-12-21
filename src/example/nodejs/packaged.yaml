@@ -40,4 +40,4 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
     Type: AWS::Serverless::Function
-Transform: AWS::Serverless-2016-10-31
+# Transform: AWS::Serverless-2016-10-31
